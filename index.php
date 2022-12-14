@@ -1,7 +1,7 @@
 <html>
 <body>
 <h1>
-Welcome to web application 1
+Welcome to Web Application 1
 </h1>
 <?php
 
