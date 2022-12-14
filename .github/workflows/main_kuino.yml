@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://mcr.microsoft.com/
-        username: ${{ secrets.AzureAppService_ContainerUsername_c7a84c157bb1406180c7d2597ab51a2a }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_978cd79841654bd1874a43f2775ca70a }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_02c22afb34eb4f288e219d1d4b0fb136 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_906f9d1b20d0468d9460e6085dd639f3 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_c7a84c157bb1406180c7d2597ab51a2a }}/azure-app-service/windows/parkingpage:${{ github.sha }}
+        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_02c22afb34eb4f288e219d1d4b0fb136 }}/azure-app-service/windows/parkingpage:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'kuino'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_481fae7f616d481a993dde034755973e }}
-        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_c7a84c157bb1406180c7d2597ab51a2a }}/azure-app-service/windows/parkingpage:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_0b09692e919347bca3937b2e8a85136a }}
+        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_02c22afb34eb4f288e219d1d4b0fb136 }}/azure-app-service/windows/parkingpage:${{ github.sha }}'
